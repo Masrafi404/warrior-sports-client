@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../../Shared/Provider/AuthProvider';
 
 const LogIn = () => {
@@ -31,7 +31,7 @@ const LogIn = () => {
             })
     }
     return (
-        <div className='mt-5'>
+        <div className='my-5'>
             <div className='body signup-container'>
                 <form onSubmit={loginHandler} className="signup-header">
                     <div className='d-flex justify-content-center align-content-center mt-5'>

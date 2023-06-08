@@ -4,9 +4,9 @@ import { AuthContext } from '../../Shared/Provider/AuthProvider';
 
 const SignUp = () => {
     const navigate = useNavigate()
-    const [error, setError] = useState('')
     const [errorSign, setErrorSign] = useState('')
     const [show, setShow] = useState(false)
+    const [error, setError] = useState('')
     const { createUser, googleSignUp, updateUserProfile } = useContext(AuthContext)
     const signUpSubmitHandler = (e) => {
         e.preventDefault()
@@ -77,7 +77,7 @@ const SignUp = () => {
                     <p className='mt-0 ms-5'>
                         <small className='text-white'>
                             {show ?
-                                <span className='ms-3'><input onClick={() => setShow(!show)} type="checkbox" name="" id="" /> Hide Password</span> :
+                                <span className='ms-3 text-black'><input onClick={() => setShow(!show)} type="checkbox" name="" id="" /> Hide Password</span> :
                                 <span className='ms-3 text-black'><input onClick={() => setShow(!show)} type="checkbox" name="" id="" /> Show password</span>}
                         </small>
                     </p>

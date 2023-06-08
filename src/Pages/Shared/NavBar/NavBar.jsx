@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const NavBar = () => {
+    const { logOut, user } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(result => { })
+            .catch(error => {
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+    };
+
     return (
         <nav className="navbar navbar-expand-lg nav-color">
             <div className="container-fluid">
@@ -25,13 +37,19 @@ const NavBar = () => {
                         <li className="nav-item">
                             <Link className="nav-link">Classes</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link">Dashboard</Link>
-                        </li>
+                        {
+                            user && <li className="nav-item">
+                                <Link className="nav-link">Dashboard</Link>
+                            </li>
+                        }
                     </ul>
 
                     <form className="d-flex" role="search">
-                        <Link className='btn btn-info' to="/login">Login</Link>
+
+
+                        {
+                            user ? <><img className='profile-image' title={user.email} src={user.photoURL} alt="" /> <Link onClick={handleLogOut} className='btn btn-info my-auto ms-3' to="/">LogOut</Link></> : <Link className='btn btn-info' to="/login">Login</Link>
+                        }
                     </form>
                 </div>
             </div>

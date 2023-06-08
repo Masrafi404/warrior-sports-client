@@ -18,6 +18,11 @@
     width: 80px;
 }
 
+.profile-image {
+    width: 70px;
+    border-radius: 50%;
+}
+
 .signup-header {
     background-color: #e7edf1;
     border: 1px solid skyblue;
