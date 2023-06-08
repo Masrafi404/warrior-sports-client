@@ -23,16 +23,12 @@ const SignUp = () => {
             setError('Password must be at least 6 characters long')
             return;
         }
-        else if (!/(?=.*[a-z])/.test(password)) {
-            setError('Please add at least on lowercase')
-            return
-        }
         else if (!/(?=.*[A-Z])/.test(password)) {
             setError('Please add at least on uppercase')
             return;
         }
-        else if (!/(?=.*[1-9])/.test(password)) {
-            setError('Please add at least on number')
+        else if (!/(?=.*[!@#$%^&*])/.test(password)) {
+            setError('Password should contain at least one special character')
             return
         }
         createUser(email, password)
