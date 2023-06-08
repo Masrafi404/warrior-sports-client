@@ -5,3 +5,75 @@
 .nav-color {
     background-color: #e3f2fd;
 }
+
+.bg-color {
+    background-color: #e7edf1;
+}
+
+.input-w {
+    width: 300px;
+}
+
+.google-image {
+    width: 80px;
+}
+
+.signup-header {
+    background-color: #e7edf1;
+    border: 1px solid skyblue;
+    width: 520px;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-field {
+    width: 400px;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.input-field-pass {
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.sign {
+    width: 50px;
+    height: 47px;
+    background-color: white;
+}
+
+.sign:hover {
+    background-color: white;
+}
+
+.signUpGoogle {
+    width: 230px;
+    border-radius: 4px;
+}
+
+.signUpGithub {
+    width: 230px;
+    border-radius: 4px;
+}
+
+@media only screen and (max-width: 584px) {
+
+    .signup-header {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+
+    .input-field {
+        width: 90%;
+    }
+
+    .input-field-pass {
+        width: 90%;
+    }
+}

@@ -125,7 +125,7 @@ const Footer = () => {
                     className="text-center p-3"
                     style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
                 >
-                    © {moment().format('YYYY')} MDBootstrap.com
+                    © {moment().format('YYYY')} Sports Warrior Academy
                 </div>
             </footer>
         </div>

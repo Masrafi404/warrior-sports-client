@@ -5,7 +5,11 @@ const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg nav-color">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">Navbar</Link>
+                <Link className="navbar-brand" to="/"><img src="https://i.ibb.co/fdStsQh/wsa-letter-technology-logo-design-on-white-background-wsa-creative-initials-letter-it-logo-concept-w.jpg" width={50} className='rounded-5' alt="" /></Link>
+                <div className='my-auto'>
+                    <h5 className='m-0'>Warrior</h5>
+                    <p className='m-0'>Sports Academy</p>
+                </div>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -27,7 +31,7 @@ const NavBar = () => {
                     </ul>
 
                     <form className="d-flex" role="search">
-                        <h2>User</h2>
+                        <Link className='btn btn-info' to="/login">Login</Link>
                     </form>
                 </div>
             </div>
