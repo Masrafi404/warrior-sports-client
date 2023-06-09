@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "image": "https://www.piggyride.com/blog/wp-content/uploads/2022/05/Cricket-Academy-1024x536.png",
         "name": "Cricket Training",
         "instructor": "John Doe",
@@ -8,7 +7,6 @@
         "price": 50
     },
     {
-        "id": 2,
         "image": "https://media.istockphoto.com/id/1183940092/photo/footballer-dribbling-ball-on-training-between-orange-cones-young-football-player-in-sports.jpg?s=612x612&w=0&k=20&c=cmMRJFqAiJL8iWYaWvH_X16t53pKnMvJNKKxLywUiOI=",
         "name": "Football Training",
         "instructor": "Jane Smith",
@@ -16,7 +14,6 @@
         "price": 60
     },
     {
-        "id": 3,
         "image": "https://www.thetennistribe.com/wp-content/uploads/Best-Tennis-Training-Aids-Featured-Image-1200x628-New.jpg",
         "name": "Tennis Lessons",
         "instructor": "David Johnson",
@@ -24,7 +21,6 @@
         "price": 40
     },
     {
-        "id": 4,
         "image": "https://media.istockphoto.com/id/1167733673/photo/female-coach-in-water-giving-group-of-children-swimming-lesson-in-indoor-pool.jpg?s=612x612&w=0&k=20&c=NC9SY321Q4PwuVNDjVI7Z_2sO46hxfXXCQBXxWkgEow=",
         "name": "Swimming Classes",
         "instructor": "Sarah Wilson",
@@ -32,7 +28,6 @@
         "price": 55
     },
     {
-        "id": 5,
         "image": "https://cdn1.sportngin.com/attachments/call_to_action/cecb-173506978/MLKSKILLZ-64_large.jpg",
         "name": "Basketball Training",
         "instructor": "Michael Brown",
@@ -40,7 +35,6 @@
         "price": 50
     },
     {
-        "id": 6,
         "image": "https://www.pakmen.com/wp-content/uploads/2019/09/Former-Pakmen-Stars-Dream-of-Turning-Pro-Becomes-a-Reality-1.jpeg",
         "name": "Volleyball Lessons",
         "instructor": "Emily Davis",
@@ -48,7 +42,6 @@
         "price": 45
     },
     {
-        "id": 7,
         "image": "https://c8.alamy.com/comp/2JB64W7/netherlands-arnhem-badminton-training-2JB64W7.jpg",
         "name": "Badminton Coaching",
         "instructor": "Daniel Wilson",
@@ -56,7 +49,6 @@
         "price": 50
     },
     {
-        "id": 8,
         "image": "https://www.el1sports.com/wp-content/uploads/2020/02/all-skills-baseball-training.jpg",
         "name": "Baseball Training",
         "instructor": "Jessica Lee",
@@ -64,7 +56,6 @@
         "price": 55
     },
     {
-        "id": 9,
         "image": "https://maphockey.com/wp-content/uploads/2022/10/61EHAIkT8lL._AC_SL1000_.jpg",
         "name": "Hockey Lessons",
         "instructor": "Ryan Thompson",
@@ -72,7 +63,6 @@
         "price": 50
     },
     {
-        "id": 10,
         "image": "https://previews.123rf.com/images/kadmy/kadmy1808/kadmy180800106/107296311-golf-training-instructor-trains-new-player-in-summer.jpg",
         "name": "Golf Coaching",
         "instructor": "Olivia Taylor",
