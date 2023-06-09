@@ -19,13 +19,12 @@
 }
 
 .profile-image {
-    width: 70px;
+    width: 60px;
     border-radius: 50%;
 }
 
 .signup-header {
     background-color: #e7edf1;
-    border: 1px solid skyblue;
     width: 520px;
     border-radius: 4px;
     margin-left: auto;
@@ -63,6 +62,31 @@
 .signUpGithub {
     width: 230px;
     border-radius: 4px;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.text-overlay h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.text-overlay p {
+    font-size: 16px;
+    color: #fff;
+}
+
+.card-image {
+    height: 200px;
 }
 
 @media only screen and (max-width: 584px) {

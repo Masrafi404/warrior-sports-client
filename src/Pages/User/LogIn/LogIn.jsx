@@ -33,11 +33,11 @@ const LogIn = () => {
     return (
         <div className='my-5'>
             <div className='body signup-container'>
-                <form onSubmit={loginHandler} className="signup-header">
+                <form onSubmit={loginHandler} className="signup-header pt-1">
                     <div className='d-flex justify-content-center align-content-center mt-5'>
                         <h4 className='mt-4'>Continue With</h4>
                         <img onClick={googleSignin}
-                            className='btn google-image' src="https://i.ibb.co/cQTPVFh/download-1-removebg-preview.png" alt="" />
+                            className='btn google-image mt-1' src="https://i.ibb.co/cQTPVFh/download-1-removebg-preview.png" alt="" />
                     </div>
                     <div className="d-flex mx-3">
                         <hr className='w-50' />Or<hr className='w-50' />
