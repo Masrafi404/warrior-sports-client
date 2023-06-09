@@ -5,7 +5,7 @@ import './Banner.css';
 
 const Banner = () => {
     return (
-        <Carousel>
+        <Carousel className='mt-4'>
             <div>
                 <img src="https://i.ibb.co/hFSpVjv/Youth-soccer-indiana-1.jpg" alt="Image 1" />
                 <div className="text-overlay">
