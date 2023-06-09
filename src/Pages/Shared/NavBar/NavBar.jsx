@@ -32,10 +32,10 @@ const NavBar = () => {
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="instructors">Instructors</Link>
+                            <Link className="nav-link" to="class">Classes</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="class">Classes</Link>
+                            <Link className="nav-link" to="instructors">Instructors</Link>
                         </li>
                         {
                             user && <li className="nav-item">

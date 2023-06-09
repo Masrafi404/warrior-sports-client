@@ -2,6 +2,10 @@
     max-width: 1200px;
 }
 
+#root {
+    font-family: 'Inter', sans-serif;
+}
+
 .nav-color {
     background-color: #e3f2fd;
 }
