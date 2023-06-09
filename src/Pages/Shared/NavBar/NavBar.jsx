@@ -4,7 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const NavBar = () => {
     const { logOut, user } = useContext(AuthContext);
-
+    console.log(user)
     const handleLogOut = () => {
         logOut()
             .then(result => { })
@@ -39,7 +39,7 @@ const NavBar = () => {
                         </li>
                         {
                             user && <li className="nav-item">
-                                <Link className="nav-link">Dashboard</Link>
+                                <Link className="nav-link" to="/dashboard">Dashboard</Link>
                             </li>
                         }
                     </ul>
@@ -48,7 +48,7 @@ const NavBar = () => {
 
 
                         {
-                            user ? <><img className='profile-image' title={user.email} src={user.photoURL} alt="" /> <Link onClick={handleLogOut} className='btn btn-info my-auto ms-3' to="/">LogOut</Link></> : <Link className='btn btn-info' to="/login">Login</Link>
+                            user ? <><img className='profile-image' title={user.email} src={user.photoURL} alt="" /> <Link onClick={handleLogOut} className='btn btn-outline-primary my-auto ms-3' to="/">LogOut</Link></> : <Link className='btn btn-outline-primary' to="/login">Login</Link>
                         }
                     </form>
                 </div>

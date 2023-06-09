@@ -1,18 +1,30 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Shared/Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const LogIn = () => {
     const { logInUser, googleSignIn } = useContext(AuthContext);
-    const [error, setError] = useState('')
-    const { handleSubmit, register, formState: { errors, showPassword } } = useForm();
+    const [error, setError] = useState('');
+    const { handleSubmit, register, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = data => {
         const { email, password } = data;
         logInUser(email, password)
             .then(() => {
-                // Handle successful login here
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Login Successful.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.message);
@@ -22,7 +34,33 @@ const LogIn = () => {
     const googleSignin = () => {
         googleSignIn()
             .then(result => {
-                // Handle successful Google sign-in here
+                const user = result.user;
+
+
+                const saveUser = { name: user.displayName, email: user.email }
+
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Login Successful.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navigate(from, { replace: true });
+                        }
+                    })
+
             })
             .catch(error => {
                 setError(error.message);
@@ -73,6 +111,7 @@ const LogIn = () => {
                             <input
                                 {...register('showPassword')}
                                 type="checkbox"
+                                onChange={() => setShowPassword(!showPassword)}
                             />{' '}
                             {showPassword ? 'Hide Password' : 'Show Password'}
                         </small>

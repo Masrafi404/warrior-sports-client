@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Shared/Provider/AuthProvider';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -18,8 +19,29 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 updateUserProfile(name, photoURL);
-                const user = result.user;
-                navigate('/');
+                const saveUser = { name: name, email: email }
+
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'User Created Successfully.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navigate('/');
+                        }
+                    })
+
             })
             .catch(error => {
                 const errorMassage = error.message;
@@ -31,7 +53,30 @@ const SignUp = () => {
         googleSignUp()
             .then(result => {
                 const user = result.user;
-                navigate('/');
+
+                const saveUser = { name: user.displayName, email: user.email }
+
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Login Successful.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navigate('/');
+                        }
+                    })
+
             })
             .catch(error => {
                 const errorMessage = error.message;
@@ -143,7 +188,7 @@ const SignUp = () => {
 
                     <div className="text-center">
                         <input
-                            {...register("image", { required: true })}
+                            {...register("photoURL", { required: true })}
                             className='input-field ps-3'
                             type="text"
                             placeholder='Image URL'
@@ -154,7 +199,7 @@ const SignUp = () => {
                     <br />
 
                     <div className="text-center">
-                        <input className='btn bg-white text-black mt-2' type="submit" value="Register" />
+                        <input className='btn bg-white text-black' type="submit" value="Register" />
                     </div>
                     <br />
 
@@ -162,7 +207,7 @@ const SignUp = () => {
                         <p className='text-black ms-5 me-3'>Already have an account? <Link to="/logIn">Login</Link></p>
                     </div>
 
-                    <span className='ms-5'>
+                    <span className='ms-5 '>
                         {errorSign && <small className='text-danger m-3'>{errorSign}</small>}
                     </span>
                 </form>
