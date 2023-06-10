@@ -2,6 +2,10 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
+
+    // TODO: load data from the server to have dynamic isAdmin
+    const isAdmin = true;
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -15,15 +19,27 @@ const Dashboard = () => {
                             <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/dashboard/mycart">Selected Class</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="">Enrolled Class</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="">Payment</Link>
-                            </li>
+                            {
+                                isAdmin ? <>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to="/dashboard/manageClass">Manage Class</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to="/dashboard/manageUsers">Manage Users</Link>
+                                    </li>
+                                </> : <>
+
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to="/dashboard/mycart">Selected Class</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to="">Enrolled Class</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to="">Payment</Link>
+                                    </li>
+                                </>
+                            }
                         </ul>
                     </div>
                 </div>

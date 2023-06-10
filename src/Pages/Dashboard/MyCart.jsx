@@ -45,7 +45,7 @@ const MyCart = () => {
                 <h3 className=''>Total Price: ${priceTotal}</h3>
                 <Link className='btn btn-outline-primary'>Payment</Link>
             </div>
-            <table class="table table-striped">
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

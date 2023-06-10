@@ -47,18 +47,16 @@ const LogIn = () => {
                     body: JSON.stringify(saveUser)
                 })
                     .then(res => res.json())
-                    .then(data => {
-                        if (data.insertedId) {
+                    .then(() => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Login Successful.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        navigate(from, { replace: true });
 
-                            Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: 'Login Successful.',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                            navigate(from, { replace: true });
-                        }
                     })
 
             })
