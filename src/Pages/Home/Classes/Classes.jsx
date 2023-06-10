@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Class from './Class';
+import Class from './class';
+
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Shared/Provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
-const ClassName = ({ classData }) => {
+const Class = ({ classData }) => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate()
     const {
@@ -54,4 +54,4 @@ const ClassName = ({ classData }) => {
     );
 };
 
-export default ClassName;
+export default Class;

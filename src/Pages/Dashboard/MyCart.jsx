@@ -6,8 +6,9 @@ import Swal from 'sweetalert2';
 
 const MyCart = () => {
     const [cart, refetch] = useCart()
+    // TODO: loading 
     console.log(cart)
-    const priceTotal = cart.reduce((sum, item) => item.price + sum, 0)
+    // const priceTotal = cart.reduce((sum, item) => item.price + sum, 0)
 
     const handlerDelete = c => {
         Swal.fire({
@@ -26,7 +27,7 @@ const MyCart = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
-                            refetch();
+                            refetch()
                             Swal.fire(
                                 'Deleted!',
                                 `Your ${c.name} class has been deleted.`,
@@ -42,10 +43,10 @@ const MyCart = () => {
         <div className='bg-color mx-auto'>
             <div className="d-flex justify-content-evenly pt-4 pb-3">
                 <h3 className=''>Total Class: {cart.length}</h3>
-                <h3 className=''>Total Price: ${priceTotal}</h3>
+                <h3 className=''>Total Price:</h3>
                 <Link className='btn btn-outline-primary'>Payment</Link>
             </div>
-            <table className="table table-striped">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

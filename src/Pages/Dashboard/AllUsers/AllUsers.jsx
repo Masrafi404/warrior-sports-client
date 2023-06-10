@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { FaTrashAlt, FaUserShield } from 'react-icons/fa';
+import { FaUserShield } from 'react-icons/fa';
+import { GiTeacher } from 'react-icons/Gi';
 import Swal from 'sweetalert2';
 
 const AllUsers = () => {
@@ -9,33 +10,8 @@ const AllUsers = () => {
         return res.json();
     })
 
-    const handlerDelete = user => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${user._id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
-                            refetch();
-                            Swal.fire(
-                                'Deleted!',
-                                `Your ${user.name} user has been deleted.`,
-                                'success'
-                            )
-                        }
-                    })
-            }
-        })
+    const handlerMakeInstructor = user => {
+
     }
 
     const handlerMakeAdmin = user => {
@@ -66,8 +42,8 @@ const AllUsers = () => {
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Admin Role</th>
+                        <th scope="col">Instructor Role</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,9 +55,11 @@ const AllUsers = () => {
                             <td className='pt-3'>{user.name}</td>
                             <td className='pt-3'>{user.email}</td>
                             <td className='pt-3'>{
-                                user.role === 'admin' ? 'Admin' : <button className='btn bg-info' onClick={() => handlerMakeAdmin(user)} ><FaUserShield /></button>
+                                user.role === 'admin' ? 'Admin' : <button className='btn bg-info me-3' onClick={() => handlerMakeAdmin(user)} ><FaUserShield title='Make Admin' /></button>
                             }  </td>
-                            <td><button onClick={() => handlerDelete(user)} className='btn btn-danger'><FaTrashAlt /></button></td>
+                            <td className='pt-3'>{
+                                user.role === 'instructor' ? 'Instructor' : <button className='btn bg-info me-3' onClick={() => handlerMakeInstructor(user)} ><GiTeacher title='Make Instructor' /></button>
+                            }  </td>
                         </tr>)
                     }
 
