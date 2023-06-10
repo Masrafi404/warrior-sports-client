@@ -46,7 +46,7 @@ const MyCart = () => {
                 <h3 className=''>Total Price:</h3>
                 <Link className='btn btn-outline-primary'>Payment</Link>
             </div>
-            <table class="table table-striped">
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -61,7 +61,7 @@ const MyCart = () => {
                             key={c._id}
                         >
                             <td scope="row">{index + 1}</td>
-                            <td colspan="1">{c.name}</td>
+                            <td colSpan="1">{c.name}</td>
                             <td>{c.price}</td>
                             <td><button onClick={() => handlerDelete(c)} className='btn btn-danger'><FaTrashAlt /></button></td>
                         </tr>)
