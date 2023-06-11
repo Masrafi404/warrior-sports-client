@@ -7,7 +7,8 @@ const ManageClass = ({ manageClass }) => {
         _id,
         image,
         course,
-        instructor_name
+        instructor_name,
+        instructor_email
     } = manageClass
     return (
         <>
@@ -16,6 +17,7 @@ const ManageClass = ({ manageClass }) => {
                     key={_id}
                     manage={manage}
                     instructor_name={instructor_name}
+                    instructor_email={instructor_email}
                 ></Manage>)
             }
         </>

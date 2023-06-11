@@ -3,7 +3,7 @@ import useClass from '../../../hooks/useClass';
 import ManageClass from './ManageClass';
 
 const AllClass = () => {
-    const [allClass, refetch] = useClass()
+    const [allClass] = useClass()
     return (
         <div>
             <h3 className='mt-5 mb-3 text-center'>Manage All Class</h3>
