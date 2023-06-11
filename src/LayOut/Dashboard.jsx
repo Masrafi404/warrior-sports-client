@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useAdmin from '../hooks/useAdmin';
+import useInstructor from '../hooks/useInstructor';
+import { useContext } from 'react';
+import { AuthContext } from '../Pages/Shared/Provider/AuthProvider';
 
 const Dashboard = () => {
-
+    const { user } = useContext(AuthContext)
     // TODO: load data from the server to have dynamic isAdmin
     // const isAdmin = true;
     const [isAdmin] = useAdmin()
+    const [isInstructor] = useInstructor()
 
     return (
         <div>
@@ -22,25 +26,34 @@ const Dashboard = () => {
                                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
                             {
-                                isAdmin ? <>
+                                isAdmin && <>
                                     <li className="nav-item">
                                         <Link className="nav-link active" aria-current="page" to="/dashboard/manageClass">Manage Class</Link>
                                     </li>
                                     <li className="nav-item">
                                         <Link className="nav-link active" aria-current="page" to="/dashboard/manageUsers">Manage Users</Link>
                                     </li>
-                                </> : <>
-
-                                    <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="/dashboard/mycart">Selected Class</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="">Enrolled Class</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="">Payment</Link>
-                                    </li>
                                 </>
+                            }
+                            {
+                                isInstructor === 'instructor' && <>
+                                    <li>Hello Bro</li>
+                                </>
+                            }
+                            {
+                                !isAdmin && !isInstructor && (
+                                    <>
+                                        <li className="nav-item">
+                                            <Link className="nav-link active" aria-current="page" to="/dashboard/mycart">Selected Class</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link active" aria-current="page" to="">Enrolled Class</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link active" aria-current="page" to="">Payment</Link>
+                                        </li>
+                                    </>
+                                )
                             }
                         </ul>
                     </div>
