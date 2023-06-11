@@ -60,9 +60,9 @@ const MyCart = () => {
                         cart.map((c, index) => <tr
                             key={c._id}
                         >
-                            <td scope="row">{index + 1}</td>
-                            <td colSpan="1">{c.name}</td>
-                            <td>{c.price}</td>
+                            <td className='pt-3' scope="row">{index + 1}</td>
+                            <td className='pt-3' colSpan="1">{c.name}</td>
+                            <td className='pt-3'>{c.price}</td>
                             <td><button onClick={() => handlerDelete(c)} className='btn btn-danger'><FaTrashAlt /></button></td>
                         </tr>)
                     }

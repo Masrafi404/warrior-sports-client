@@ -1,7 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { FaUserShield } from 'react-icons/fa';
-import { GiTeacher } from 'react-icons/Gi';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
@@ -23,7 +21,7 @@ const AllUsers = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: `${user.name} is and Admin now`,
+                        title: `${user.name} is and Instructor now`,
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -56,7 +54,7 @@ const AllUsers = () => {
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">User Role</th>
@@ -65,13 +63,13 @@ const AllUsers = () => {
                 </thead>
                 <tbody>
                     {
-                        users.map((user, index) => <tr
+                        users.map(user => <tr
                             key={user._id}
                         >
-                            <th scope="row" className='pt-3'>{index + 1}</th>
-                            <td className='pt-3'>{user.name}</td>
-                            <td className='pt-3'>{user.email}</td>
-                            <td className='pt-3'>
+                            <th scope="row" className='pt-3'><img className='profile-image' src={user.image} alt="" /></th>
+                            <td className='pt-4'>{user.name}</td>
+                            <td className='pt-4'>{user.email}</td>
+                            <td className='pt-4'>
                                 {
                                     user.role === 'admin' && 'Admin'
                                 }
