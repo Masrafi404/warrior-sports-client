@@ -13,6 +13,7 @@ import PrivateRoutes from "../Pages/PrivateRoutes/PrivateRoutes";
 import MyCart from "../Pages/Dashboard/MyCart";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "../Pages/AdminRoute/AdminRout";
+// import InstructorRoute from "../Pages/InstructorRoute/InstructorRoute"
 import AllClass from "../Pages/Dashboard/AllClass/AllClass";
 
 
