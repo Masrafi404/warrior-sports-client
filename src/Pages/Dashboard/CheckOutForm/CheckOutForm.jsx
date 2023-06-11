@@ -83,17 +83,18 @@ const CheckOutForm = ({ cart, price }) => {
                 date: new Date(),
                 quantity: cart.length,
                 cartItems: cart.map(item => item._id),
-                // menuItems: cart.map(item => item.menuItemId),
+                image: cart.map(item => item.image),
                 status: 'service pending',
-                itemNames: cart.map(item => item.name)
+                itemNames: cart.map(item => item.name),
+                instructor_Names: cart.map(item => item.instructor_name)
             }
-            // axiosSecure.post('/payments', payment)
-            //     .then(res => {
-            //         console.log(res.data);
-            //         if (res.data.result.insertedId) {
+            axiosSecure.post('/payments', payment)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.insertedId) {
 
-            //         }
-            //     })
+                    }
+                })
         }
 
 
