@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../Shared/Provider/AuthProvider';
+import { AuthContext } from '../../../Shared/Provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+
 
 const Class = ({ classData }) => {
     const { user } = useContext(AuthContext);

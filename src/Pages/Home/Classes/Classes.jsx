@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Class from './class';
+import Class from './class/Class';
+
 
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('http://localhost:5000/classes') // Full URL including endpoint path
             .then(res => res.json())
             .then(data => {
                 setClasses(data);
@@ -15,6 +16,7 @@ const Classes = () => {
                 console.log('Error fetching classes:', error);
             });
     }, []);
+
 
     return (
         <div>

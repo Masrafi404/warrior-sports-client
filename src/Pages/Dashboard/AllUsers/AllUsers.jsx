@@ -13,7 +13,22 @@ const AllUsers = () => {
     })
 
     const handlerMakeInstructor = user => {
-
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    refetch()
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is and Admin now`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
     const handlerMakeAdmin = user => {
@@ -44,8 +59,8 @@ const AllUsers = () => {
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Admin Role</th>
-                        <th scope="col">Instructor Role</th>
+                        <th scope="col">User Role</th>
+                        <th className='ps-5' scope="col"><span className='ps-3'>Set Role</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,12 +71,37 @@ const AllUsers = () => {
                             <th scope="row" className='pt-3'>{index + 1}</th>
                             <td className='pt-3'>{user.name}</td>
                             <td className='pt-3'>{user.email}</td>
-                            <td className='pt-3'>{
-                                user.role === 'admin' ? 'Admin' : <button className='btn bg-info me-3' onClick={() => handlerMakeAdmin(user)} ><FaUserShield title='Make Admin' /></button>
-                            }  </td>
-                            <td className='pt-3'>{
-                                user.role === 'instructor' ? 'Instructor' : <button className='btn bg-info me-3' onClick={() => handlerMakeInstructor(user)} ><GiTeacher title='Make Instructor' /></button>
-                            }  </td>
+                            <td className='pt-3'>
+                                {
+                                    user.role === 'admin' && 'Admin'
+                                }
+                                {
+                                    user.role === 'instructor' && 'Instructor'
+                                }
+                                {
+                                    user?.role ? <></> : <>Student</>
+                                }
+                            </td>
+
+
+
+                            <td className='pt-3'>
+                                {
+                                    user.role === 'admin' ? (
+                                        <button className='btn bg-info me-3' disabled>Admin</button>
+                                    ) : (
+                                        <button className='btn bg-info me-3' onClick={() => handlerMakeAdmin(user)}>Admin</button>
+                                    )
+                                }
+                                {
+                                    user.role === 'instructor' ? (
+                                        <button className='btn bg-info me-3' disabled>Instructor</button>
+                                    ) : (
+                                        <button className='btn bg-info me-3' onClick={() => handlerMakeInstructor(user)}>Instructor</button>
+                                    )
+                                }
+                            </td>
+
                         </tr>)
                     }
 
