@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 
-const CheckOutForm = ({ cart, price }) => {
+const CheckOutForm = ({ cart, price, refetch }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useContext(AuthContext)
