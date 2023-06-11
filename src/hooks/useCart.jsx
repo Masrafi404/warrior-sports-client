@@ -4,7 +4,7 @@ import { AuthContext } from '../Pages/Shared/Provider/AuthProvider';
 import axios from 'axios';
 
 const useCart = () => {
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
 
     const token = localStorage.getItem('access-token');
 
