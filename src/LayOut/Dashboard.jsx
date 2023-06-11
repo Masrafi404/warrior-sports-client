@@ -49,9 +49,6 @@ const Dashboard = () => {
                                         <li className="nav-item">
                                             <Link className="nav-link active" aria-current="page" to="">Enrolled Class</Link>
                                         </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" to="">Payment</Link>
-                                        </li>
                                     </>
                                 )
                             }

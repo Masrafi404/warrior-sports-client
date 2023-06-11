@@ -15,6 +15,7 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "../Pages/AdminRoute/AdminRout";
 // import InstructorRoute from "../Pages/InstructorRoute/InstructorRoute"
 import AllClass from "../Pages/Dashboard/AllClass/AllClass";
+import Payment from "../Pages/Dashboard/payment/Payment";
 
 
 
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
             {
                 path: 'mycart',
                 element: <MyCart></MyCart>
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
             },
             {
                 path: 'manageUsers',
