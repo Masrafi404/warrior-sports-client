@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Slide } from 'react-awesome-reveal';
 
 const Enrolled = () => {
     const [enrolled, setEnrolled] = useState([])
@@ -12,14 +13,16 @@ const Enrolled = () => {
             })
     }, [])
     return (
-        <div>
-            <h4 className='my-4 text-center'>My Enrolled Class</h4>
-            {
-                //TODO
-                enrolled.map(enroll => console.log(enroll))
-            }
+        <Slide>
+            <div>
+                <h4 className='my-4 text-center'>My Enrolled Class</h4>
+                {
+                    //TODO
+                    enrolled.map(enroll => console.log(enroll))
+                }
 
-        </div>
+            </div>
+        </Slide>
     );
 };
 

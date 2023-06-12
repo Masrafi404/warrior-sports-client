@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Shared/Provider/AuthProvider';
+import { Slide } from 'react-awesome-reveal';
 
 const AddClass = () => {
     const { user } = useContext(AuthContext);
@@ -50,65 +51,67 @@ const AddClass = () => {
     }
 
     return (
-        <div className="container">
-            <h1>Add a Class</h1>
-            <form onSubmit={handlerAddClass}>
-                <div className="row">
-                    <div className="col-md-6 mb-3">
-                        <label className="form-label">Class Name</label>
-                        <input required={true} type="text" className="form-control" name="name" />
+        <Slide>
+            <div className="container">
+                <h1>Add a Class</h1>
+                <form onSubmit={handlerAddClass}>
+                    <div className="row">
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Class Name</label>
+                            <input required={true} type="text" className="form-control" name="name" />
+                        </div>
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Class Image</label>
+                            <input required={true} type="text" className="form-control" name="image" />
+                        </div>
                     </div>
-                    <div className="col-md-6 mb-3">
-                        <label className="form-label">Class Image</label>
-                        <input required={true} type="text" className="form-control" name="image" />
+                    <div className="row">
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Instructor Name</label>
+                            <input
+                                required={true}
+                                type="text"
+                                className="form-control"
+                                defaultValue={userName}
+                                readOnly
+                                name="instructor_name"
+                            />
+                        </div>
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Instructor Email</label>
+                            <input
+                                required={true}
+                                type="text"
+                                className="form-control"
+                                defaultValue={userEmail}
+                                readOnly
+                                name="instructor_email"
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6 mb-3">
-                        <label className="form-label">Instructor Name</label>
-                        <input
-                            required={true}
-                            type="text"
-                            className="form-control"
-                            defaultValue={userName}
-                            readOnly
-                            name="instructor_name"
-                        />
+                    <div className="row">
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Instructor Image</label>
+                            <input required={true} type="text" defaultValue={userImage}
+                                readOnly className="form-control" name="instructor_image" />
+                        </div>
+                        <div className="col-md-6 mb-3">
+                            <label className="form-label">Available Seats</label>
+                            <input required={true} type="text" className="form-control" name="availableSeats" />
+                        </div>
                     </div>
-                    <div className="col-md-6 mb-3">
-                        <label className="form-label">Instructor Email</label>
-                        <input
-                            required={true}
-                            type="text"
-                            className="form-control"
-                            defaultValue={userEmail}
-                            readOnly
-                            name="instructor_email"
-                        />
+                    <div className="row">
+                        <div className="col-md-6 offset-md-3">
+                            <label className="form-label">Price</label>
+                            <input required={true} type="text" className="form-control" name="price" />
+                        </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6 mb-3">
-                        <label className="form-label">Instructor Image</label>
-                        <input required={true} type="text" defaultValue={userImage}
-                            readOnly className="form-control" name="instructor_image" />
+                    <div className='text-center'>
+                        <input className='btn btn-primary mt-3' type="submit" value="add" />
                     </div>
-                    <div className="col-md-6 mb-3">
-                        <label className="form-label">Available Seats</label>
-                        <input required={true} type="text" className="form-control" name="availableSeats" />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-6 offset-md-3">
-                        <label className="form-label">Price</label>
-                        <input required={true} type="text" className="form-control" name="price" />
-                    </div>
-                </div>
-                <div className='text-center'>
-                    <input className='btn btn-primary mt-3' type="submit" value="add" />
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        </Slide>
     );
 };
 
