@@ -48,7 +48,7 @@ const NavBar = () => {
 
 
                         {
-                            user ? <><img className='profile-image' title={user.email} src={user.photoURL} alt="" /> <Link onClick={handleLogOut} className='btn btn-outline-primary my-auto ms-3' to="/">LogOut</Link></> : <Link className='btn btn-outline-primary' to="/login">Login</Link>
+                            user ? <><img className='profile-image' title={user.email} src={user?.photoURL} alt="" /> <Link onClick={handleLogOut} className='btn btn-outline-primary my-auto ms-3' to="/">LogOut</Link></> : <Link className='btn btn-outline-primary' to="/login">Login</Link>
                         }
                     </form>
                 </div>

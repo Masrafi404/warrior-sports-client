@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const PaymentHistory = () => {
     const [pHistory, setPHistory] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/payments')
+        fetch('http://localhost:5000/paymentsHistory')
             .then(res => res.json())
             .then(data => {
                 setPHistory(data)
@@ -29,7 +29,7 @@ const PaymentHistory = () => {
                             <td>Credit Card</td>
                             <td colspan="2">{history.transactionId
                             }</td>
-                            <td>Class Running</td>
+                            <td>Approved Student</td>
                             <td>{history.date}</td>
                             <td>${history.price}</td>
                         </tr>)

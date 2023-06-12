@@ -36,8 +36,13 @@ const Dashboard = () => {
                                 </>
                             }
                             {
-                                isInstructor === 'instructor' && <>
-                                    <li>Hello Bro</li>
+                                isInstructor && <>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to="/dashboard/addclass">Add Class</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to="/dashboard/myclass">My Class</Link>
+                                    </li>
                                 </>
                             }
                             {

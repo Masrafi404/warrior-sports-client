@@ -12,7 +12,7 @@ const Payment = () => {
     const price = parseFloat(total.toFixed(2))
     return (
         <div className='w-50 mx-auto'>
-            <h4 className='ms-5 my-4'>Pay with card</h4>
+            <h4 className='text-center my-4'>Pay with card</h4>
             <Elements stripe={stripePromise}>
                 <CheckOutForm cart={cart} price={price} refetch={refetch}></CheckOutForm>
             </Elements>

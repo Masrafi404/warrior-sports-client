@@ -84,9 +84,10 @@ const CheckOutForm = ({ cart, price, refetch }) => {
                 quantity: cart.length,
                 cartItems: cart.map(item => item._id),
                 image: cart.map(item => item.image),
-                status: 'service pending',
+                status: 'service approved',
                 itemNames: cart.map(item => item.name),
-                instructor_Names: cart.map(item => item.instructor_name)
+                instructor_Names: cart.map(item => item.instructor_name),
+                instructor_image: cart.map(item => item.instructor_image)
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
