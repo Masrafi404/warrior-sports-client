@@ -42,14 +42,13 @@ const MyCart = () => {
 
 
 
-
     return (
         <Slide>
             <div className='bg-color mx-auto'>
                 <div className="ms-4 pt-4 pb-3">
                     <div className='d-flex justify-content-around'><h3 className=''>Total Class: {cart.length}</h3>
                         <h3 className=''>Total Amount: {total}</h3>
-                        <Link to="/dashboard/payment"><button className='btn btn-primary'>Payment</button></Link></div>
+                        <Link to="/dashboard/payment/1"><button className='btn btn-primary'>Payment</button></Link></div>
                 </div>
                 <table className="table table-striped">
                     <thead>
@@ -58,6 +57,7 @@ const MyCart = () => {
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Action</th>
+                            <th scope="col">Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,6 +69,9 @@ const MyCart = () => {
                                 <td className='pt-3' colSpan="1">{c.name}</td>
                                 <td className='pt-3'>{c.price}</td>
                                 <td><button onClick={() => handlerDelete(c)} className='btn btn-danger'><FaTrashAlt /></button></td>
+                                <td>
+                                    <Link to={`/dashboard/payment/${c._id}`}><button className='btn btn-primary'>Pay</button></Link>
+                                </td>
                             </tr>)
                         }
                     </tbody>

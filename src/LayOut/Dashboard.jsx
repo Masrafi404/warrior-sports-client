@@ -35,11 +35,12 @@ const Dashboard = () => {
                             {
                                 isAdmin && <>
                                     <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="/dashboard/manageClass"><GiTeacher className='mb-1' /> Manage Class</Link>
-                                    </li>
-                                    <li className="nav-item">
                                         <Link className="nav-link active" aria-current="page" to="/dashboard/manageUsers"><MdOutlineManageAccounts /> Manage Users</Link>
                                     </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to="/dashboard/manageClass"><GiTeacher className='mb-1' /> Manage Class</Link>
+                                    </li>
+
                                 </>
                             }
                             {

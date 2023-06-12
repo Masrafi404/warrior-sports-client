@@ -29,7 +29,7 @@ const PaymentHistory = () => {
                             pHistory.map(history => <tr
                                 key={history._id}>
                                 <td>Credit Card</td>
-                                <td colspan="2">{history.transactionId
+                                <td colSpan="2">{history.transactionId
                                 }</td>
                                 <td>Approved Student</td>
                                 <td>{history.date}</td>

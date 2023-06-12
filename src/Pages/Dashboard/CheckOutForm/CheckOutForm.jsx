@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 
-const CheckOutForm = ({ cart, price, refetch }) => {
+const CheckOutForm = ({ cart, price }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useContext(AuthContext)
@@ -16,6 +16,7 @@ const CheckOutForm = ({ cart, price, refetch }) => {
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
+    const [submitting, setSubmitting] = useState(false);
 
     useEffect(() => {
         if (price > 0) {
@@ -34,13 +35,14 @@ const CheckOutForm = ({ cart, price, refetch }) => {
         if (!stripe || !elements) {
             return;
         }
+        setSubmitting(true);
 
         const card = elements.getElement(CardElement);
         if (card === null) {
             return;
         }
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card
         })
@@ -81,13 +83,11 @@ const CheckOutForm = ({ cart, price, refetch }) => {
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
-                quantity: cart.length,
-                cartItems: cart.map(item => item._id),
-                image: cart.map(item => item.image),
+                cartId: cart._id,
+                image: cart.image,
                 status: 'service approved',
-                itemNames: cart.map(item => item.name),
-                instructor_Names: cart.map(item => item.instructor_name),
-                instructor_image: cart.map(item => item.instructor_image)
+                name: cart.name,
+                instructor_name: cart.instructor_name
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
@@ -97,7 +97,7 @@ const CheckOutForm = ({ cart, price, refetch }) => {
                     }
                 })
         }
-
+        setSubmitting(false)
 
     }
 
@@ -120,7 +120,9 @@ const CheckOutForm = ({ cart, price, refetch }) => {
                         },
                     }}
                 />
-                <button className="btn btn-primary mt-4 ms-4" type="submit" disabled={!stripe || !clientSecret || processing}> Pay </button>
+                <button className="btn btn-primary mt-4 ms-4" type="submit" disabled={!stripe || !clientSecret || processing || submitting}>
+                    Pay {price}$
+                </button>
             </form>
             {cardError && <p className="text-danger ms-4 mt-3">{cardError}</p>}
             {transactionId && <p className="text-success ms-4 mt-3">Transaction complete with transactionId: {transactionId}</p>}
