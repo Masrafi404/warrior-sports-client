@@ -4,6 +4,13 @@ import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
 import { useContext } from 'react';
 import { AuthContext } from '../Pages/Shared/Provider/AuthProvider';
+import { GiTeacher } from 'react-icons/gi';
+import { FaHome, FaMoneyCheckAlt } from 'react-icons/fa';
+import { BsWindowPlus } from 'react-icons/bs';
+import { AiOutlineProfile } from 'react-icons/ai';
+import { TbSelect } from 'react-icons/tb';
+import { SiVisualstudiocode } from 'react-icons/si';
+import { MdOutlineManageAccounts } from 'react-icons/md';
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext)
@@ -23,25 +30,25 @@ const Dashboard = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav mx-auto">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                                <Link className="nav-link active" aria-current="page" to="/"><FaHome className='mb-1' /> Home</Link>
                             </li>
                             {
                                 isAdmin && <>
                                     <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="/dashboard/manageClass">Manage Class</Link>
+                                        <Link className="nav-link active" aria-current="page" to="/dashboard/manageClass"><GiTeacher className='mb-1' /> Manage Class</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="/dashboard/manageUsers">Manage Users</Link>
+                                        <Link className="nav-link active" aria-current="page" to="/dashboard/manageUsers"><MdOutlineManageAccounts /> Manage Users</Link>
                                     </li>
                                 </>
                             }
                             {
                                 isInstructor && <>
                                     <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="/dashboard/addclass">Add Class</Link>
+                                        <Link className="nav-link active" aria-current="page" to="/dashboard/addclass"><BsWindowPlus className='mb-1' /> Add Class</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="/dashboard/myclass">My Class</Link>
+                                        <Link className="nav-link active" aria-current="page" to="/dashboard/myclass"><AiOutlineProfile className='mb-1' /> My Class</Link>
                                     </li>
                                 </>
                             }
@@ -49,13 +56,13 @@ const Dashboard = () => {
                                 !isAdmin && !isInstructor && (
                                     <>
                                         <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" to="/dashboard/mycart">Selected Class</Link>
+                                            <Link className="nav-link active" aria-current="page" to="/dashboard/mycart"><TbSelect className='mb-1' /> Selected Class</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" to="/dashboard/enrolledclass">Enrolled Class</Link>
+                                            <Link className="nav-link active" aria-current="page" to="/dashboard/enrolledclass"><SiVisualstudiocode className='mb-1' /> Enrolled Class</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" to="/dashboard/paymenthistory">Payment History</Link>
+                                            <Link className="nav-link active" aria-current="page" to="/dashboard/paymenthistory"><FaMoneyCheckAlt className='mb-1' /> Payment History</Link>
                                         </li>
                                     </>
                                 )

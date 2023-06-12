@@ -1,0 +1,12 @@
+.active-color {
+    color: rgb(69, 153, 226) !important;
+    border-bottom: 2px solid #fff;
+}
+
+.non-active {
+    color: rgba(71, 184, 201, 0.91);
+}
+
+.non-active:hover {
+    color: rgba(189, 132, 82, 0.318);
+}

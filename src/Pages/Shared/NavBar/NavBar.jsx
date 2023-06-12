@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const NavBar = () => {
     const { logOut, user } = useContext(AuthContext);
@@ -29,17 +30,17 @@ const NavBar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Home</Link>
+                            <ActiveLink className="nav-link" to="/">Home</ActiveLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="class">Classes</Link>
+                            <ActiveLink className="nav-link" to="class">Classes</ActiveLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="instructors">Instructors</Link>
+                            <ActiveLink className="nav-link" to="instructors">Instructors</ActiveLink>
                         </li>
                         {
                             user && <li className="nav-item">
-                                <Link className="nav-link" to="/dashboard">Dashboard</Link>
+                                <ActiveLink className="nav-link" to="/dashboard">Dashboard</ActiveLink>
                             </li>
                         }
                     </ul>
