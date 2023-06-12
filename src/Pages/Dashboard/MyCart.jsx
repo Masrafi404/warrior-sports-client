@@ -46,9 +46,7 @@ const MyCart = () => {
         <Slide>
             <div className='bg-color mx-auto'>
                 <div className="ms-4 pt-4 pb-3">
-                    <div className='d-flex justify-content-around'><h3 className=''>Total Class: {cart.length}</h3>
-                        <h3 className=''>Total Amount: {total}</h3>
-                        <Link to="/dashboard/payment/1"><button className='btn btn-primary'>Payment</button></Link></div>
+                    <h3 className='my-3 ms-4'>Total Class: {cart.length}</h3>
                 </div>
                 <table className="table table-striped">
                     <thead>

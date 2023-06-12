@@ -19,7 +19,9 @@ const Enrolled = () => {
                 <div className="row row-cols-1 row-cols-md-3 g-4 mb-5">
                     {
                         //TODO
-                        enrolled.map(enroll => <div className="col">
+                        enrolled.map(enroll => <div className="col"
+                            key={enroll._id}
+                        >
                             <div className="card">
                                 <img card-img src={enroll.image} className="card-img-top card-image" alt="..." />
                                 <div className="card-body">
