@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { Slide } from 'react-awesome-reveal';
+import { AuthContext } from '../../Shared/Provider/AuthProvider';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 
 const PaymentHistory = () => {
-    const [pHistory, setPHistory] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/paymentsHistory')
-            .then(res => res.json())
-            .then(data => {
-                setPHistory(data)
-            })
-    }, [])
+    const { user } = useContext(AuthContext)
+    const [axiosSecure] = useAxiosSecure();
+    const { data: pHistory = [], refetch } = useQuery(['/paymentHistories'], async () => {
+        const res = await axiosSecure.get(`/paymentHistories?email=${user?.email}`)
+        return res.data;
+    })
+    console.log(pHistory);
     return (
         <Slide>
             <div className=''>

@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Slide } from 'react-awesome-reveal';
+import { AuthContext } from '../../Shared/Provider/AuthProvider';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 
 const Enrolled = () => {
-    const [enrolled, setEnrolled] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/paymentsEnroll')
-            .then(res => res.json())
-            .then(data => {
-                setEnrolled(data)
-            })
-    }, [])
+    const { user } = useContext(AuthContext)
+    const [axiosSecure] = useAxiosSecure();
+    const { data: enrolled = [], refetch } = useQuery(['/paymentEnrolledClasses'], async () => {
+        const res = await axiosSecure.get(`/paymentEnrolledClasses?email=${user?.email}`)
+        return res.data;
+    })
+    console.log(enrolled);
     return (
         <Slide>
             <div>
