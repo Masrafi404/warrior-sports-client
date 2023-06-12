@@ -1,0 +1,40 @@
+.newsletter-section {
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+}
+
+.newsletter-content {
+    color: #fff;
+}
+
+.newsletter-content h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.newsletter-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.newsletter-content form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.newsletter-content .form-group {
+    margin-bottom: 20px;
+}
+
+.newsletter-content .form-control {
+    height: 50px;
+    border-radius: 25px;
+}
+
+.newsletter-content .btn-primary {
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: 18px;
+}
