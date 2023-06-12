@@ -14,7 +14,7 @@ const Payment = () => {
     const data = useLoaderData()
     const price = data?.price
     // const price = parseFloat(amount?.toFixed(2))
-    console.log(data)
+    // console.log(data)
 
     // const total = cart.reduce((sum, item) => sum + item.price, 0)
     // const price = parseFloat(total.toFixed(2))

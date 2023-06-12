@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Instructor from '../instructor/Instructor';
+import Instructor from '../Instructor/Instructor';
 
 const Instructors = () => {
     const [insTrs, setInsTrs] = useState([])
@@ -12,7 +12,7 @@ const Instructors = () => {
                 setIsLoading(false);
             })
             .catch(error => {
-                console.log('Error fetching classes:', error);
+                // console.log('Error fetching classes:', error);
                 setIsLoading(false);
             });
     }, [])

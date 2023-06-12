@@ -22,7 +22,7 @@ const CheckOutForm = ({ cart, price }) => {
         if (price > 0) {
             axiosSecure.post('/create-payment-intent', { price })
                 .then(res => {
-                    console.log(res.data.clientSecret)
+                    // console.log(res.data.clientSecret)
                     setClientSecret(res.data.clientSecret);
                 })
         }
@@ -48,7 +48,7 @@ const CheckOutForm = ({ cart, price }) => {
         })
 
         if (error) {
-            console.log('error', error)
+            // console.log('error', error)
             setCardError(error.message);
         }
         else {
@@ -70,10 +70,10 @@ const CheckOutForm = ({ cart, price }) => {
         );
 
         if (confirmError) {
-            console.log(confirmError);
+            // console.log(confirmError);
         }
 
-        console.log('payment intent', paymentIntent)
+        // console.log('payment intent', paymentIntent)
         setProcessing(false)
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
@@ -91,7 +91,7 @@ const CheckOutForm = ({ cart, price }) => {
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     if (res.data.insertedId) {
 
                     }

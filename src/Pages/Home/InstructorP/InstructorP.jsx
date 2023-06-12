@@ -4,7 +4,7 @@ import InsSl from '../../InsSl/InsSl';
 const InstructorP = () => {
     const [ins, setIns] = useState([])
     const slice = ins.slice(0, 6)
-    console.log(slice)
+    // console.log(slice)
     useEffect(() => {
         fetch('http://localhost:5000/classes')
             .then(res => res.json())

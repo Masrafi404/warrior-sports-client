@@ -12,7 +12,7 @@ const Class = ({ classData }) => {
         course,
         instructor_name
     } = classData;
-    console.log(classData)
+    // console.log(classData)
 
 
 

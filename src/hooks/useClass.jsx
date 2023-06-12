@@ -9,7 +9,7 @@ const useClass = () => {
         queryFn: async () => {
             const response = await fetch('http://localhost:5000/classes')
             return response.json()
-            console.log(response.json())
+            // console.log(response.json())
         },
     })
     return [allClass, refetch]

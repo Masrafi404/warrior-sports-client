@@ -21,7 +21,7 @@ const Cls = ({ cr, instructor_name }) => {
         }
         let email = user?.email
         const select = { email, name, instructor_name, image, price, availableSeats }
-        console.log(select)
+        // console.log(select)
 
         fetch('http://localhost:5000/select', {
             method: 'POST',
@@ -32,7 +32,7 @@ const Cls = ({ cr, instructor_name }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
             })
     };
 

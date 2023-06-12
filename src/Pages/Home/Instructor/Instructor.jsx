@@ -2,7 +2,7 @@ import React from 'react';
 
 const Instructor = ({ instructor }) => {
     const { instructor_name, instructor_image, instructor_email } = instructor
-    console.log(instructor)
+    // console.log(instructor)
     return (
         <div className="col">
             <div className="card">

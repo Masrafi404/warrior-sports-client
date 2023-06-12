@@ -29,7 +29,7 @@ const Banner = () => {
                     <img src="https://i.postimg.cc/1Xk1XDxZ/i.jpg" className="d-block w-100" alt="..." />
                     <div className="carousel-caption d-none d-md-block">
                         <h3>Train with Passion</h3>
-                        <p>Experience world-className coaching and improve your skills.</p>/p>
+                        <p>Experience world-className coaching and improve your skills.</p>
                     </div>
                 </div>
                 <div className="carousel-item">

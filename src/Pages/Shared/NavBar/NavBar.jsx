@@ -5,7 +5,7 @@ import ActiveLink from '../ActiveLink/ActiveLink';
 
 const NavBar = () => {
     const { logOut, user } = useContext(AuthContext);
-    console.log(user)
+    // console.log(user)
     const handleLogOut = () => {
         logOut()
             .then(result => { })

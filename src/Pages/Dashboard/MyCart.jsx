@@ -9,7 +9,7 @@ const MyCart = () => {
     const [cart, refetch] = useCart()
     const total = cart.reduce((sum, item) => sum + item.price, 0)
     // TODO: loading 
-    console.log(cart)
+    // console.log(cart)
 
     const handlerDelete = c => {
         Swal.fire({

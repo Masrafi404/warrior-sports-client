@@ -13,7 +13,7 @@ const Classes = () => {
                 setIsLoading(false); // Mark loading as false once data is fetched
             })
             .catch(error => {
-                console.log('Error fetching classes:', error);
+                // console.log('Error fetching classes:', error);
                 setIsLoading(false); // Mark loading as false in case of an error
             });
     }, []);

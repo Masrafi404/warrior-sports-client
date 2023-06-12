@@ -14,7 +14,7 @@ const MyClass = () => {
                 setMyClasses(data);
             })
             .catch(error => {
-                console.log('Error fetching classes:', error);
+                // console.log('Error fetching classes:', error);
             });
     };
 
