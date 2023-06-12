@@ -11,6 +11,7 @@ import { AiOutlineProfile } from 'react-icons/ai';
 import { TbSelect } from 'react-icons/tb';
 import { SiVisualstudiocode } from 'react-icons/si';
 import { MdOutlineManageAccounts } from 'react-icons/md';
+import ActiveLink from '../Pages/Shared/ActiveLink/ActiveLink';
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext)
@@ -30,15 +31,15 @@ const Dashboard = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav mx-auto">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/"><FaHome className='mb-1' /> Home</Link>
+                                <ActiveLink className="nav-link active" aria-current="page" to="/"><FaHome className='mb-1' /> Home</ActiveLink>
                             </li>
                             {
                                 isAdmin && <>
                                     <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="/dashboard/manageUsers"><MdOutlineManageAccounts /> Manage Users</Link>
+                                        <ActiveLink className="nav-link active" aria-current="page" to="/dashboard/manageUsers"><MdOutlineManageAccounts /> Manage Users</ActiveLink>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="/dashboard/manageClass"><GiTeacher className='mb-1' /> Manage Class</Link>
+                                        <ActiveLink className="nav-link active" aria-current="page" to="/dashboard/manageClass"><GiTeacher className='mb-1' /> Manage Class</ActiveLink>
                                     </li>
 
                                 </>
@@ -46,10 +47,10 @@ const Dashboard = () => {
                             {
                                 isInstructor && <>
                                     <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="/dashboard/addclass"><BsWindowPlus className='mb-1' /> Add Class</Link>
+                                        <ActiveLink className="nav-link active" aria-current="page" to="/dashboard/addclass"><BsWindowPlus className='mb-1' /> Add Class</ActiveLink>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link active" aria-current="page" to="/dashboard/myclass"><AiOutlineProfile className='mb-1' /> My Class</Link>
+                                        <ActiveLink className="nav-link active" aria-current="page" to="/dashboard/myclass"><AiOutlineProfile className='mb-1' /> My Class</ActiveLink>
                                     </li>
                                 </>
                             }
@@ -57,13 +58,13 @@ const Dashboard = () => {
                                 !isAdmin && !isInstructor && (
                                     <>
                                         <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" to="/dashboard/mycart"><TbSelect className='mb-1' /> Selected Class</Link>
+                                            <ActiveLink className="nav-link active" aria-current="page" to="/dashboard/mycart"><TbSelect className='mb-1' /> Selected Class</ActiveLink>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" to="/dashboard/enrolledclass"><SiVisualstudiocode className='mb-1' /> Enrolled Class</Link>
+                                            <ActiveLink className="nav-link active" aria-current="page" to="/dashboard/enrolledclass"><SiVisualstudiocode className='mb-1' /> Enrolled Class</ActiveLink>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" to="/dashboard/paymenthistory"><FaMoneyCheckAlt className='mb-1' /> Payment History</Link>
+                                            <ActiveLink className="nav-link active" aria-current="page" to="/dashboard/paymenthistory"><FaMoneyCheckAlt className='mb-1' /> Payment History</ActiveLink>
                                         </li>
                                     </>
                                 )

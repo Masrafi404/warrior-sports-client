@@ -20,7 +20,7 @@ const Classes = () => {
 
     return (
         <div>
-            <h3 className="mt-5 mb-3 text-center">All Training Class</h3>
+            <h3 className="mt-1 mb-3 text-center">All Training Class</h3>
             {isLoading ? (
                 <div className="d-flex my-5 justify-content-center text-warning">
                     <div className="spinner-border mt-5" role="status">

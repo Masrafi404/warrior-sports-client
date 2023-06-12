@@ -12,8 +12,8 @@ const Payment = () => {
     const [cart, refetch] = useCart()
 
     const data = useLoaderData()
-    const amount = data?.price
-    const price = parseFloat(amount.toFixed(2))
+    const price = data?.price
+    // const price = parseFloat(amount?.toFixed(2))
     console.log(data)
 
     // const total = cart.reduce((sum, item) => sum + item.price, 0)
