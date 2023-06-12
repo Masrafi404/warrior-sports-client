@@ -8,7 +8,7 @@ const MyClass = () => {
     const { user } = useContext(AuthContext);
 
     const fetchClasses = () => {
-        fetch(`http://localhost:5000/addClass?email=${user?.email}`)
+        fetch(`https://assaignment-12-backend-server.vercel.app/addClass?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyClasses(data);

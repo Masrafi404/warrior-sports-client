@@ -21,7 +21,7 @@ const SignUp = () => {
                 updateUserProfile(name, photoURL);
                 const saveUser = { name: name, email: email, image: photoURL }
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://assaignment-12-backend-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -54,9 +54,9 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
 
-                const saveUser = { name: user.displayName, email: user.email }
+                const saveUser = { name: user.displayName, email: user.email, image: user.photoURL }
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://assaignment-12-backend-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

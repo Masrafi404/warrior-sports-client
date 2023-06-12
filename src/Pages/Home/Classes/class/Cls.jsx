@@ -23,7 +23,7 @@ const Cls = ({ cr, instructor_name }) => {
         const select = { email, name, instructor_name, image, price, availableSeats }
         // console.log(select)
 
-        fetch('http://localhost:5000/select', {
+        fetch('https://assaignment-12-backend-server.vercel.app/select', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

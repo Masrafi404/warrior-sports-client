@@ -36,7 +36,7 @@ const AddClass = () => {
             course
         }
 
-        fetch('http://localhost:5000/addClass', {
+        fetch('https://assaignment-12-backend-server.vercel.app/addClass', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

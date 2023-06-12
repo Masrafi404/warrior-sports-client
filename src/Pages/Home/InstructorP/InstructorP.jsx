@@ -6,7 +6,7 @@ const InstructorP = () => {
     const slice = ins.slice(0, 6)
     // console.log(slice)
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://assaignment-12-backend-server.vercel.app/classes')
             .then(res => res.json())
             .then(data => {
                 setIns(data)

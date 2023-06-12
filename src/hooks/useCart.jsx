@@ -10,7 +10,7 @@ const useCart = () => {
 
     const { isLoading, refetch, data: cart = [] } = useQuery(['cart', user?.email], async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/carts?email=${user.email}`, {
+            const response = await axios.get(`https://assaignment-12-backend-server.vercel.app/carts?email=${user.email}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

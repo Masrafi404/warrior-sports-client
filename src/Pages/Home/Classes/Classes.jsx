@@ -6,7 +6,7 @@ const Classes = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://assaignment-12-backend-server.vercel.app/classes')
             .then(res => res.json())
             .then(data => {
                 setClasses(data);

@@ -16,14 +16,32 @@ const LogIn = () => {
     const onSubmit = data => {
         const { email, password } = data;
         logInUser(email, password)
-            .then(() => {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Login Successful.',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+            .then(result => {
+                const user = result.user;
+
+
+                const saveUser = { name: user.displayName, email: user.email, image: user?.photoURL }
+
+                fetch('https://assaignment-12-backend-server.vercel.app/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Login Successful.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+
+                        navigate(from, { replace: true });
+
+                    })
                 navigate(from, { replace: true });
             })
             .catch(error => {
@@ -39,7 +57,7 @@ const LogIn = () => {
 
                 const saveUser = { name: user.displayName, email: user.email, image: user?.photoURL }
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://assaignment-12-backend-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
